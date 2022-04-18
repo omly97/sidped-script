@@ -52,10 +52,10 @@ def axe_humain():
         return jsonify(data)
 
     except GSpreadException as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except TransportError as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except:
         return jsonify({ 'code': 500, 'success': False, 'message': "Erreur interne du serveur" })
@@ -68,10 +68,10 @@ def axe_humain_key(key):
         return jsonify({ 'metadata': service.get_metadata(), 'data': service.get_data_calculated() })
 
     except GSpreadException as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except TransportError as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except:
         return jsonify({ 'code': 500, 'success': False, 'message': "Erreur interne du serveur" })
@@ -85,10 +85,10 @@ def axe_finance():
         return jsonify(data)
 
     except GSpreadException as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except TransportError as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except:
         return jsonify({ 'code': 500, 'success': False, 'message': "Erreur interne du serveur" })
@@ -101,10 +101,10 @@ def axe_finance_key(key):
         return jsonify({ 'metadata': service.get_metadata(), 'data': service.get_data_calculated() })
 
     except GSpreadException as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except TransportError as e:
-        return jsonify(str(e))
+        return jsonify({ 'success': False, 'message': str(e) })
 
     except:
         return jsonify({ 'code': 500, 'success': False, 'message': "Erreur interne du serveur" })
