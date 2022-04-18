@@ -47,7 +47,7 @@ FINANCE_SERVICES = {
 
 @app.route('/axe-humain')
 def axe_humain():
-    data = [{ 'metadata': service.get_metadata(), 'data': service.get_data_calculated() } for key,service in HUMAN_SERVICES.items()]
+    data = [{ 'key': key, 'metadata': service.get_metadata(), 'data': service.get_data_calculated() } for key,service in HUMAN_SERVICES.items()]
     try:
         return jsonify(data)
 
@@ -65,7 +65,7 @@ def axe_humain():
 def axe_humain_key(key):
     service = HUMAN_SERVICES[key]
     try:
-        return jsonify({ 'metadata': service.get_metadata(), 'data': service.get_data_calculated() })
+        return jsonify({ 'key': key, 'metadata': service.get_metadata(), 'data': service.get_data_calculated() })
 
     except GSpreadException as e:
         return jsonify({ 'success': False, 'message': str(e) })
@@ -80,7 +80,7 @@ def axe_humain_key(key):
 
 @app.route('/axe-finance', methods = ['GET'])
 def axe_finance():
-    data = [{ 'metadata': service.get_metadata(), 'data': service.get_data_calculated() } for key,service in FINANCE_SERVICES.items()]
+    data = [{ 'key': key, 'metadata': service.get_metadata(), 'data': service.get_data_calculated() } for key,service in FINANCE_SERVICES.items()]
     try:
         return jsonify(data)
 
@@ -98,7 +98,7 @@ def axe_finance():
 def axe_finance_key(key):
     service = FINANCE_SERVICES[key]
     try:
-        return jsonify({ 'metadata': service.get_metadata(), 'data': service.get_data_calculated() })
+        return jsonify({ 'key': key, 'metadata': service.get_metadata(), 'data': service.get_data_calculated() })
 
     except GSpreadException as e:
         return jsonify({ 'success': False, 'message': str(e) })
