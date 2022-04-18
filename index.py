@@ -109,3 +109,12 @@ def axe_finance_key(key):
     except:
         return jsonify({ 'code': 500, 'success': False, 'message': "Erreur interne du serveur" })
 
+
+
+@app.route('/')
+def index():
+    return "It's work"
+
+
+if __name__ == "__main__":
+        app.run()
