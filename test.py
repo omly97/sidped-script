@@ -1,5 +1,5 @@
 from Models.Efficience import Efficience
-from Repositories.EfficienceRepository import EfficienceRepository
+from Repositories.DataPE1Repository import EfficienceRepository
 
 
 repo = EfficienceRepository()

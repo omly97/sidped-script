@@ -1,9 +1,10 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 
+from App.efficience_blueprint import efficience_blueprint
+
 from google.auth.exceptions import TransportError
 from gspread.exceptions import GSpreadException
-from Repositories.EfficienceRepository import EfficienceRepository
 
 from axefinance.F1Service import F1Service
 from axefinance.F2Service import F2Service
@@ -24,6 +25,9 @@ app.config['JSON_SORT_KEYS'] = False
 
 # config cors
 cors = CORS(app, resources={r"/*": {"origins": "*",}})
+
+# efficience
+app.register_blueprint(efficience_blueprint, url_prefix='/efficience')
 
 
 # instance services humain
@@ -110,23 +114,6 @@ def axe_finance_key(key):
     except:
         return jsonify({ 'code': 500, 'success': False, 'message': "Erreur interne du serveur" })
 
-
-
-@app.route('/efficience')
-def efficience():
-    repo = EfficienceRepository()
-    data = repo.select_all__efficience()
-
-    new_data = []
-    for item in data:
-        new_data.append({
-            'annee': item[1],
-            'PE1': (item[2] * 100) / (item[2] + item[3]),
-            'PE2': ((item[4] + item[5]) * 100) / item[6],
-            'PE3': (item[7] * item[8] * 100) / (item[9] + 10),
-        })
-
-    return jsonify(new_data)
 
 
 
