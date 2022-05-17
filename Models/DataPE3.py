@@ -8,6 +8,10 @@ class DataPE3:
         self.__data_ca = data_ca
 
     
+    def get_intitule(self):
+        return "Existence de SID"
+
+
     def get_code(self):
         return "PE3"
 
@@ -21,12 +25,14 @@ class DataPE3:
 
 
     def calculate_score(self):
-        return ((self.__data_di + self.__data_sa) * 100) / (self.__data_cp + self.__data_ca)
+        score = ((self.__data_di + self.__data_sa) * 100) / (self.__data_cp + self.__data_ca)
+        return round(score, 2)
 
 
     def get_stats(self):
         return {
             'annee': self.__annee,
+            'intitule': self.get_intitule(),
             'code': self.get_code(),
             'cible': self.get_cible_str(),
             'score': self.calculate_score(),

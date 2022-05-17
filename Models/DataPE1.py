@@ -6,6 +6,10 @@ class DataPE1:
         self.__data_ta = data_ta
 
     
+    def get_intitule(self):
+        return "Fréquence de mise à jour di site web"
+
+
     def get_code(self):
         return "PE1"
 
@@ -19,12 +23,14 @@ class DataPE1:
 
 
     def calculate_score(self):
-        return (self.__data_tr * 100) / (self.__data_tr + self.__data_ta)
+        score = (self.__data_tr * 100) / (self.__data_tr + self.__data_ta)
+        return round(score, 2)
 
 
     def get_stats(self):
         return {
             'annee': self.__annee,
+            'intitule': self.get_intitule(),
             'code': self.get_code(),
             'cible': self.get_cible_str(),
             'score': self.calculate_score(),

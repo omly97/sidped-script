@@ -7,6 +7,10 @@ class DataPE2:
         self.__data_b = data_b
 
     
+    def get_intitule(self):
+        return "Organisation du module « Méthodologie de préparation de thèse »"
+
+
     def get_code(self):
         return "PE2"
 
@@ -20,12 +24,14 @@ class DataPE2:
 
 
     def calculate_score(self):
-        return ((self.__data_cp + self.__data_ca) * 100) / self.__data_b
+        score = ((self.__data_cp + self.__data_ca) * 100) / self.__data_b
+        return round(score, 2)
 
 
     def get_stats(self):
         return {
             'annee': self.__annee,
+            'intitule': self.get_intitule(),
             'code': self.get_code(),
             'cible': self.get_cible_str(),
             'score': self.calculate_score(),

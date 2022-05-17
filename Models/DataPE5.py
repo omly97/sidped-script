@@ -7,6 +7,10 @@ class DataPE5:
         self.__data_dd = data_dd
 
     
+    def get_intitule(self):
+        return "Taux d'abandon du doctorat"
+
+
     def get_code(self):
         return "PE5"
 
@@ -20,12 +24,14 @@ class DataPE5:
 
 
     def calculate_score(self):
-        return ((self.__data_a1 + self.__data_a2) * 100) / self.__data_dd
+        score = ((self.__data_a1 + self.__data_a2) * 100) / self.__data_dd
+        return round(score, 2)
 
 
     def get_stats(self):
         return {
             'annee': self.__annee,
+            'intitule': self.get_intitule(),
             'code': self.get_code(),
             'cible': self.get_cible_str(),
             'score': self.calculate_score(),
