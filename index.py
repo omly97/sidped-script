@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 from App.efficience_blueprint import efficience_blueprint
+from App.finance_blueprint import finance_blueprint
 
 from google.auth.exceptions import TransportError
 from gspread.exceptions import GSpreadException
@@ -26,8 +27,9 @@ app.config['JSON_SORT_KEYS'] = False
 # config cors
 cors = CORS(app, resources={r"/*": {"origins": "*",}})
 
-# efficience
+# blueprints
 app.register_blueprint(efficience_blueprint, url_prefix='/efficience')
+app.register_blueprint(finance_blueprint, url_prefix='/finance')
 
 
 # instance services humain
@@ -123,4 +125,4 @@ def index():
 
 
 if __name__ == "__main__":
-        app.run()
+    app.run(host='127.0.0.1', port=5000, debug=True)
