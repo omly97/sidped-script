@@ -1,5 +1,5 @@
-from Models.DataH2A import DataH2A
-from Repositories.Repository import Repository
+from models.DataH2A import DataH2A
+from repositories.Repository import Repository
 
 
 class DataH2ARepository(Repository):

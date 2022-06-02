@@ -1,5 +1,5 @@
-from Models.DataPE1 import DataPE1
-from Repositories.Repository import Repository
+from models.DataPE1 import DataPE1
+from repositories.Repository import Repository
 
 
 class DataPE1Repository(Repository):

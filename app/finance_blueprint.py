@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify
 
-from Repositories.DataF1Repository import DataF1Repository
-from Repositories.DataF2Repository import DataF2Repository
-from Repositories.DataF3Repository import DataF3Repository
+from repositories.DataF1Repository import DataF1Repository
+from repositories.DataF2Repository import DataF2Repository
+from repositories.DataF3Repository import DataF3Repository
 
 finance_blueprint = Blueprint('finance_blueprint', __name__)
 

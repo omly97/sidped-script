@@ -1,5 +1,5 @@
-from Models.DataH4 import DataH4
-from Repositories.Repository import Repository
+from models.DataH4 import DataH4
+from repositories.Repository import Repository
 
 
 class DataH4Repository(Repository):

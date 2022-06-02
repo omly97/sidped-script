@@ -1,5 +1,5 @@
-from Models.DataF1 import DataF1
-from Repositories.Repository import Repository
+from models.DataF1 import DataF1
+from repositories.Repository import Repository
 
 
 class DataF1Repository(Repository):

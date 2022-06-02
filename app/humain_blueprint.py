@@ -1,21 +1,21 @@
 from flask import Blueprint, jsonify
 
-from Repositories.DataPE1Repository import DataPE1Repository
-from Repositories.DataPE2Repository import DataPE2Repository
-from Repositories.DataPE3Repository import DataPE3Repository
-from Repositories.DataPE5Repository import DataPE5Repository
-from Repositories.DataPE6Repository import DataPE6Repository
+from repositories.DataH1Repository import DataH1Repository
+from repositories.DataH2ARepository import DataH2ARepository
+from repositories.DataH2BRepository import DataH2BRepository
+from repositories.DataH3Repository import DataH3Repository
+from repositories.DataH4Repository import DataH4Repository
 
-efficience_blueprint = Blueprint('efficience_blueprint', __name__)
+humain_blueprint = Blueprint('humain_blueprint', __name__)
 
-repoE1 = DataPE1Repository()
-repoE2 = DataPE2Repository()
-repoE3 = DataPE3Repository()
-repoE5 = DataPE5Repository()
-repoE6 = DataPE6Repository()
+repoE1 = DataH1Repository()
+repoE2 = DataH2ARepository()
+repoE3 = DataH2BRepository()
+repoE5 = DataH3Repository()
+repoE6 = DataH4Repository()
 
 
-@efficience_blueprint.route('/')
+@humain_blueprint.route('/')
 def all():
     return jsonify([
         [data.get_stats() for data in repoE1.all()],
@@ -26,7 +26,7 @@ def all():
     ])
 
 
-@efficience_blueprint.route('/<int:annee>')
+@humain_blueprint.route('/<int:annee>')
 def find(annee):
     return jsonify([
         repoE1.find(annee).get_stats(),
