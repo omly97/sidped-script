@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 from App.efficience_blueprint import efficience_blueprint
 from App.finance_blueprint import finance_blueprint
+from App.humain_blueprint import humain_blueprint
 
 from google.auth.exceptions import TransportError
 from gspread.exceptions import GSpreadException
@@ -30,6 +31,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*",}})
 # blueprints
 app.register_blueprint(efficience_blueprint, url_prefix='/efficience')
 app.register_blueprint(finance_blueprint, url_prefix='/finance')
+app.register_blueprint(humain_blueprint, url_prefix='/humain')
 
 
 # instance services humain

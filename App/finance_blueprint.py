@@ -3,8 +3,6 @@ from flask import Blueprint, jsonify
 from Repositories.DataF1Repository import DataF1Repository
 from Repositories.DataF2Repository import DataF2Repository
 from Repositories.DataF3Repository import DataF3Repository
-from Repositories.DataPE5Repository import DataPE5Repository
-from Repositories.DataPE6Repository import DataPE6Repository
 
 finance_blueprint = Blueprint('finance_blueprint', __name__)
 

@@ -16,11 +16,11 @@ class DataH2B:
 
 
     def get_cible_str(self):
-        return "≥ 20"
+        return "≥ 80%"
 
     
     def get_cible_numeric(self):
-        return 20
+        return 80
 
 
     def calculate_score(self):
